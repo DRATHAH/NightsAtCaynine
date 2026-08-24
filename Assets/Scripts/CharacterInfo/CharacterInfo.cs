@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterInfo : MonoBehaviour
 {
@@ -12,12 +13,19 @@ public class CharacterInfo : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        DialogueLeaf testLeaf = new DialogueLeaf("I just said hello", TestAction);
+
+        testLeaf.Process();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void TestAction()
+    {
+        Debug.Log("hi");
     }
 }
