@@ -24,6 +24,7 @@ public class SubtitleManager : MonoBehaviour
     [SerializeField] Animator dialogueAnimation;
     [SerializeField] Subtitle dialogueBox;
     [SerializeField] TMP_Text messageText;
+    [SerializeField] CharIconData[] characterIcons;
 
     [Header("Other")]
     public InputActionReference mouseClick;
@@ -58,6 +59,14 @@ public class SubtitleManager : MonoBehaviour
         if (rightMouseClick.action.triggered)
         {
             SetText(dialogueManager.Reverse());
+        }
+    }
+
+    public void StartDialogue(CharacterInfo[] characters)
+    {
+        for (int i = 0; i < characters.Length; i++)
+        {
+            characterIcons[i].AssignCharacter(characters[i]);
         }
     }
 
