@@ -21,6 +21,7 @@ public class SubtitleManager : MonoBehaviour
     #endregion
 
     [Header("Display")]
+    [SerializeField] Animator dialogueAnimation;
     [SerializeField] Subtitle dialogueBox;
     [SerializeField] TMP_Text messageText;
 
@@ -42,7 +43,7 @@ public class SubtitleManager : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (mouseClick.action.triggered)
+        if (mouseClick.action.triggered && dialogueAnimation.gameObject.GetComponent<CanvasGroup>().alpha == 1)
         {
             if (!dialogueBox.finished)
             {
@@ -63,13 +64,26 @@ public class SubtitleManager : MonoBehaviour
     // Normally adds text to the dialogue box
     public void SetText(string msg)
     {
-        messageText.color = DialogueManager.instance.currentCharacter.dialogueColor;
-        dialogueBox.AddWriter(messageText, msg, time, true);
+        if (!dialogueAnimation.GetCurrentAnimatorStateInfo(0).IsName("FadeIn"))
+        {
+            dialogueAnimation.SetTrigger("Activate");
+        }
+
+        if (msg != null)
+        {
+            messageText.color = DialogueManager.instance.currentCharacter.dialogueColor;
+            dialogueBox.AddWriter(messageText, msg, time, true);
+        }
     }
 
     // Immediately sets the dialogue box to the text
     public void FinishText(string msg)
     {
         dialogueBox.SetDialogue(messageText, msg);
+    }
+
+    public void FinishDialogue()
+    {
+        dialogueAnimation.SetTrigger("Deactivate");
     }
 }
