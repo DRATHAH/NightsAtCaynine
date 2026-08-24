@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 1158011964}
   - component: {fileID: 1158011965}
   m_Layer: 0
-  m_Name: TestCharacter
+  m_Name: Mariena Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

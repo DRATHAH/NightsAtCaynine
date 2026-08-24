@@ -30,4 +30,14 @@ public class DialogueManager : MonoBehaviour
     {
         
     }
+
+    public void Continue()
+    {
+        Debug.Log("Go to next line");
+    }
+
+    public void Choice()
+    {
+        Debug.Log("Show new dialogue options");
+    }
 }

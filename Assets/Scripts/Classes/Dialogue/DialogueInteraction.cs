@@ -4,5 +4,6 @@ using UnityEngine;
 public class DialogueInteraction
 {
     public string interactionName;
-    public string[] dialogue;
+    [SerializeReference]
+    public DialogueNode[] dialogue;
 }

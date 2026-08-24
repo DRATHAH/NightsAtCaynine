@@ -13,7 +13,7 @@ public class CharacterInfo : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        DialogueLeaf testLeaf = new DialogueLeaf("I just said hello", TestAction);
+        DialogueSequence testLeaf = new DialogueSequence("I just said hello");
 
         testLeaf.Process();
     }

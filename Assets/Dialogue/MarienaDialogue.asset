@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharDialogueData
   interactions:
   - interactionName: 
+    dialogue:
+    - dialogueLine: 
+  - interactionName: 
     dialogue: []
