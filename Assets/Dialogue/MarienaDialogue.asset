@@ -13,8 +13,23 @@ MonoBehaviour:
   m_Name: MarienaDialogue
   m_EditorClassIdentifier: Assembly-CSharp::CharDialogueData
   interactions:
-  - interactionName: 
+  - interactionName: Start test
     dialogue:
-    - dialogueLine: 
-  - interactionName: 
-    dialogue: []
+    - rid: 2633833386215735376
+    - rid: 2633833386215735389
+    - rid: 2633833386215735390
+  references:
+    version: 2
+    RefIds:
+    - rid: 2633833386215735376
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Hello world!
+    - rid: 2633833386215735389
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: You are talking to me!
+    - rid: 2633833386215735390
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: This is so cool!

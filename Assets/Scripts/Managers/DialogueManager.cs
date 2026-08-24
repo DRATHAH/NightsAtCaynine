@@ -18,11 +18,18 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     public CharacterInfo currentCharacter;
+    public int textNum = 0;
+
+    DialogueInteraction currentInteraction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (currentCharacter)
+        {
+            currentInteraction = currentCharacter.dialogueData.interactions[0];
+            SubtitleManager.instance.SetText(currentInteraction.dialogue[textNum].dialogueLine);
+        }
     }
 
     // Update is called once per frame
@@ -31,9 +38,29 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    public void Continue()
+    public string GetText()
     {
-        Debug.Log("Go to next line");
+        return currentInteraction.dialogue[textNum].dialogueLine;
+    }
+
+    public string Continue()
+    {
+        if (currentInteraction.dialogue.Length - 1 > textNum)
+        {
+            textNum++;
+        }
+
+        return currentInteraction.dialogue[textNum].dialogueLine;
+    }
+
+    public string Reverse()
+    {
+        if (textNum - 1 >= 0)
+        {
+            textNum--;
+        }
+
+        return currentInteraction.dialogue[textNum].dialogueLine;
     }
 
     public void Choice()

@@ -30,6 +30,8 @@ public class DialogueSequence : DialogueNode
     [SerializeReference]
     public List<DialogueNode> nodes = new List<DialogueNode>();
 
+    public DialogueSequence() { }
+
     public DialogueSequence(string text)
     {
         dialogueLine = text;
@@ -46,6 +48,8 @@ public class DialogueOptions : DialogueNode
 {
     public string[] choices;
 
+    public DialogueOptions() { }
+
     public DialogueOptions(string question, string[] options)
     {
         dialogueLine = question;
@@ -60,6 +64,17 @@ public class DialogueOptions : DialogueNode
             Debug.Log(choice);
         }
 
+        return null;
+    }
+}
+
+public class DialogueSwapSpeaker : DialogueNode
+{
+    public DialogueSwapSpeaker() { }
+
+    public override string Process()
+    {
+        Debug.Log("Swapped");
         return null;
     }
 }
