@@ -12,19 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd61b1f89a045e4fb0fcd8bed90972e, type: 3}
   m_Name: MarienaDialogue
   m_EditorClassIdentifier: Assembly-CSharp::CharDialogueData
+  characterName: Mariena
+  dialogueColor: {r: 1, g: 0.7764706, b: 0.78431374, a: 1}
   interactions:
   - interactionName: Start test
     dialogue:
     - rid: 2633833386215735376
     - rid: 2633833386215735389
     - rid: 2633833386215735390
+    - rid: 6313860343315562567
+    - rid: 6313860343315562572
+    - rid: 6313860343315562573
   references:
     version: 2
     RefIds:
     - rid: 2633833386215735376
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
-        dialogueLine: Hello world!
+        dialogueLine: Hello world! It's me, Mariena!
     - rid: 2633833386215735389
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
@@ -33,3 +38,21 @@ MonoBehaviour:
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
         dialogueLine: This is so cool!
+    - rid: 6313860343315562567
+      type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Swap to Adamine
+        swapTo: {fileID: 11400000, guid: 61e5ef37279ae864d8882d62d3e74fe2, type: 2}
+        interactionNum: 0
+        textNum: 0
+    - rid: 6313860343315562572
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: But the programmer is trying his best!
+    - rid: 6313860343315562573
+      type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Swap to Adamine
+        swapTo: {fileID: 11400000, guid: 61e5ef37279ae864d8882d62d3e74fe2, type: 2}
+        interactionNum: 0
+        textNum: 3

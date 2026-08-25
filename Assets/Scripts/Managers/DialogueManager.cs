@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
-    public CharacterInfo currentCharacter;
+    public CharDialogueData currentCharacter;
     public int textNum = 0;
 
     DialogueInteraction currentInteraction;
@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    public void StartInteraction(CharacterInfo[] interactedChar, DialogueInteraction interaction, int newNum)
+    public void StartInteraction(CharDialogueData[] interactedChar, DialogueInteraction interaction, int newNum)
     {
         currentCharacter = interactedChar[1];
         currentInteraction = interaction;
@@ -51,7 +51,7 @@ public class DialogueManager : MonoBehaviour
 
     public string GetText()
     {
-        return currentInteraction.dialogue[textNum].dialogueLine;
+        return currentInteraction.dialogue[textNum].Process();
     }
 
     public string Continue()
@@ -69,7 +69,7 @@ public class DialogueManager : MonoBehaviour
             textNum++;
         }
 
-        return currentInteraction.dialogue[textNum].dialogueLine;
+        return GetText();
     }
 
     public string Reverse()
@@ -80,6 +80,14 @@ public class DialogueManager : MonoBehaviour
         }
 
         return currentInteraction.dialogue[textNum].dialogueLine;
+    }
+
+    public void SwapCharacter(CharDialogueData newChar, DialogueInteraction newInteraction, int newTextNum)
+    {
+        currentCharacter = newChar;
+        currentInteraction = newInteraction;
+        textNum = newTextNum;
+        subtitleManager.SetText(GetText());
     }
 
     public void Choice()

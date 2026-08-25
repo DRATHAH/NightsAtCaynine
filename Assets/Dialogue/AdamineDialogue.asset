@@ -12,7 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd61b1f89a045e4fb0fcd8bed90972e, type: 3}
   m_Name: AdamineDialogue
   m_EditorClassIdentifier: Assembly-CSharp::CharDialogueData
-  interactions: []
+  characterName: Adamine
+  dialogueColor: {r: 0.76862746, g: 0.88235295, b: 1, a: 1}
+  interactions:
+  - interactionName: Swap test
+    dialogue:
+    - rid: 6313860343315562568
+    - rid: 6313860343315562570
+    - rid: 6313860343315562571
+    - rid: 6313860343315562574
+    - rid: 6313860343315562569
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 6313860343315562568
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Yeah, I guess this is pretty cool, huh?
+    - rid: 6313860343315562569
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Speaking of which, I wonder how long I can speak for. Do you
+          think all this text will run off the dialogue box? Let's see how the programmer
+          handles this.
+    - rid: 6313860343315562570
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: This is Adamine speaking, by the way. It's kind of hard to
+          tell with the white boxes being a placeholder for our art.
+    - rid: 6313860343315562571
+      type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Swap to Mariena
+        swapTo: {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
+        interactionNum: 0
+        textNum: 4
+    - rid: 6313860343315562574
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Alright, true. I'll give him some credit for that.

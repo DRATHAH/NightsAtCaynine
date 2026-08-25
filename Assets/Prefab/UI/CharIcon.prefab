@@ -113,3 +113,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharIconData
   emotionState: 0
   character: {fileID: 0}
+  animator: {fileID: 529119676319493424}

@@ -12,16 +12,16 @@ public class CharIconData : MonoBehaviour
     }
 
     public Emotion emotionState = Emotion.Resting;
-    public CharacterInfo character;
+    public CharDialogueData character;
 
-    Animator animator;
+    public Animator animator;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    public void AssignCharacter(CharacterInfo assignedChar)
+    public void AssignCharacter(CharDialogueData assignedChar)
     {
         character = assignedChar;
     }
@@ -30,7 +30,7 @@ public class CharIconData : MonoBehaviour
     {
         if (charName.Equals(character.name))
         {
-            animator.SetBool("notSpeaking",false);
+            animator.SetBool("notSpeaking", false);
         }
         else
         {

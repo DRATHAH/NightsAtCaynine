@@ -65,12 +65,12 @@ public class SubtitleManager : MonoBehaviour
         }
     }
 
-    public void CallStartDialogue(CharacterInfo[] characters)
+    public void CallStartDialogue(CharDialogueData[] characters)
     {
         StartCoroutine(StartDialogue(characters));
     }
 
-    public IEnumerator StartDialogue(CharacterInfo[] characters)
+    public IEnumerator StartDialogue(CharDialogueData[] characters)
     {
         for (int i = 0; i < characters.Length; i++)
         {
@@ -79,6 +79,7 @@ public class SubtitleManager : MonoBehaviour
         }
 
         dialogueAnimation.gameObject.SetActive(true);
+        dialogueBox.ClearDialogue(messageText);
         if (!dialogueAnimation.GetCurrentAnimatorStateInfo(0).IsName("FadeIn"))
         {
             dialogueAnimation.SetTrigger("Activate");
@@ -89,7 +90,12 @@ public class SubtitleManager : MonoBehaviour
             character.UpdateVisual(CharIconData.Emotion.Resting, dialogueManager.currentCharacter.name);
         }
 
-        while (dialogueAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+        while (!dialogueAnimation.GetCurrentAnimatorStateInfo(0).IsName("FadeIn"))
+        {
+            yield return null;
+        }
+
+        while (dialogueAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime < 1 )
         {
             yield return null;
         }
@@ -105,6 +111,11 @@ public class SubtitleManager : MonoBehaviour
             messageText.color = DialogueManager.instance.currentCharacter.dialogueColor;
             dialogueBox.AddWriter(messageText, msg, time, true);
         }
+
+        foreach (CharIconData character in characterIcons)
+        {
+            character.UpdateVisual(CharIconData.Emotion.Resting, dialogueManager.currentCharacter.name);
+        }
     }
 
     // Immediately sets the dialogue box to the text
@@ -115,8 +126,7 @@ public class SubtitleManager : MonoBehaviour
 
     public void FinishDialogue()
     {
-        Debug.Log("hide");
-        dialogueBox.SetDialogue(messageText, " ");
+        dialogueBox.ClearDialogue(messageText);
         dialogueAnimation.SetTrigger("Deactivate");
     }
 }

@@ -72,9 +72,16 @@ public class DialogueSwapSpeaker : DialogueNode
 {
     public DialogueSwapSpeaker() { }
 
+    [SerializeField]
+    public CharDialogueData swapTo;
+    public int interactionNum;
+    public int textNum = 0;
+
     public override string Process()
     {
         Debug.Log("Swapped");
+        DialogueInteraction interaction = swapTo.interactions[interactionNum];
+        DialogueManager.instance.SwapCharacter(swapTo, interaction, textNum);
         return null;
     }
 }

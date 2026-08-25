@@ -34,6 +34,7 @@ public class DialogueNodeDrawer : PropertyDrawer
         menu.AddItem(new GUIContent("Dialogue Line"), false, () => CreateNode<DialogueNode>(property));
         menu.AddItem(new GUIContent("Dialogue Sequence"), false, () => CreateNode<DialogueSequence>(property));
         menu.AddItem(new GUIContent("Dialogue Question"), false, () => CreateNode<DialogueOptions>(property));
+        menu.AddItem(new GUIContent("Swap Speaker"), false, () => CreateNode<DialogueSwapSpeaker>(property));
 
         menu.ShowAsContext(); // Actually shows the options in the editor
     }

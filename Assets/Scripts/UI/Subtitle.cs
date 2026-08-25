@@ -27,6 +27,12 @@ public class Subtitle : MonoBehaviour
         }
     }
 
+    public void ClearDialogue(TMP_Text text)
+    {
+        text.text = "";
+        uiText = null;
+    }
+
     public void SetDialogue(TMP_Text text, string toWrite)
     {
         if (!finished)
