@@ -129,4 +129,9 @@ public class SubtitleManager : MonoBehaviour
         dialogueBox.ClearDialogue(messageText);
         dialogueAnimation.SetTrigger("Deactivate");
     }
+
+    public void ShowDialogueOptions()
+    {
+
+    }
 }

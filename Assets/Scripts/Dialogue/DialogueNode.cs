@@ -1,7 +1,8 @@
-using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
+using UnityEngine;
+using static Unity.VisualScripting.Metadata;
 
 [System.Serializable]
 public class DialogueNode
@@ -39,7 +40,12 @@ public class DialogueSequence : DialogueNode
 
     public override string Process()
     {
-        return dialogueLine;
+        foreach(DialogueNode node in nodes)
+        {
+            return node.Process();
+        }
+
+        return null;
     }
 }
 
@@ -64,7 +70,7 @@ public class DialogueOptions : DialogueNode
             Debug.Log(choice);
         }
 
-        return null;
+        return dialogueLine;
     }
 }
 
