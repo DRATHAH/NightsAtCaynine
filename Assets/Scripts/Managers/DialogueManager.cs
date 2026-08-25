@@ -27,17 +27,26 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         subtitleManager = SubtitleManager.instance;
-        if (currentCharacter)
+        /*if (currentCharacter)
         {
             currentInteraction = currentCharacter.dialogueData.interactions[0];
             subtitleManager.SetText(currentInteraction.dialogue[textNum].dialogueLine);
-        }
+        }*/
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void StartInteraction(CharacterInfo[] interactedChar, DialogueInteraction interaction, int newNum)
+    {
+        currentCharacter = interactedChar[1];
+        currentInteraction = interaction;
+        textNum = newNum;
+
+        subtitleManager.CallStartDialogue(interactedChar);
     }
 
     public string GetText()

@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class SubtitleManager : MonoBehaviour
 {
@@ -39,12 +40,14 @@ public class SubtitleManager : MonoBehaviour
     void Start()
     {
         dialogueManager = DialogueManager.instance;
+
+        dialogueAnimation.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        if (mouseClick.action.triggered && dialogueAnimation.gameObject.GetComponent<CanvasGroup>().alpha == 1)
+        if (mouseClick.action.triggered && dialogueAnimation.gameObject.GetComponent<CanvasGroup>().alpha == 1 && dialogueAnimation.gameObject.activeSelf)
         {
             if (!dialogueBox.finished)
             {
@@ -62,22 +65,41 @@ public class SubtitleManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(CharacterInfo[] characters)
+    public void CallStartDialogue(CharacterInfo[] characters)
+    {
+        StartCoroutine(StartDialogue(characters));
+    }
+
+    public IEnumerator StartDialogue(CharacterInfo[] characters)
     {
         for (int i = 0; i < characters.Length; i++)
         {
             characterIcons[i].AssignCharacter(characters[i]);
+            Debug.Log(characterIcons[i].name);
         }
-    }
 
-    // Normally adds text to the dialogue box
-    public void SetText(string msg)
-    {
+        dialogueAnimation.gameObject.SetActive(true);
         if (!dialogueAnimation.GetCurrentAnimatorStateInfo(0).IsName("FadeIn"))
         {
             dialogueAnimation.SetTrigger("Activate");
         }
 
+        foreach (CharIconData character in characterIcons)
+        {
+            character.UpdateVisual(CharIconData.Emotion.Resting, dialogueManager.currentCharacter.name);
+        }
+
+        while (dialogueAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+        {
+            yield return null;
+        }
+
+        SetText(dialogueManager.GetText());
+    }
+
+    // Normally adds text to the dialogue box
+    public void SetText(string msg)
+    {
         if (msg != null)
         {
             messageText.color = DialogueManager.instance.currentCharacter.dialogueColor;
@@ -93,6 +115,8 @@ public class SubtitleManager : MonoBehaviour
 
     public void FinishDialogue()
     {
+        Debug.Log("hide");
+        dialogueBox.SetDialogue(messageText, " ");
         dialogueAnimation.SetTrigger("Deactivate");
     }
 }
