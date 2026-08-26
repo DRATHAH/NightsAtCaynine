@@ -9,6 +9,14 @@ public class DialogueNodeDrawer : PropertyDrawer
     {
         EditorGUI.BeginProperty(position, label, property);
 
+        // This drawer is only supposed to handle managed references (if it's a normal serialized type, don't do anything)
+        if (property.propertyType != SerializedPropertyType.ManagedReference)
+        {
+            EditorGUI.PropertyField(position, property, label, true);
+            EditorGUI.EndProperty();
+            return;
+        }
+
         // If there isn't a concrete object assigned yet, show a button allowing the user to make one
         if (property.managedReferenceValue == null)
         {
@@ -48,6 +56,11 @@ public class DialogueNodeDrawer : PropertyDrawer
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
+        if (property.propertyType != SerializedPropertyType.ManagedReference)
+        {
+            return EditorGUI.GetPropertyHeight(property, label, true);
+        }
+
         if (property.managedReferenceValue == null)
         {
             return EditorGUIUtility.singleLineHeight;

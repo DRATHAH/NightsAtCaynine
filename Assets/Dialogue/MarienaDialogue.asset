@@ -23,13 +23,19 @@ MonoBehaviour:
     - rid: 6313860343315562567
     - rid: 6313860343315562572
     - rid: 6313860343315562573
+  - interactionName: How did you handle the text Reponse 1
+    dialogue:
+    - rid: 2633833386215735376
+  - interactionName: How did you handle the text Reponse 2
+    dialogue:
+    - rid: 2633833386215735376
   references:
     version: 2
     RefIds:
     - rid: 2633833386215735376
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
-        dialogueLine: Hello world! It's me, Mariena!
+        dialogueLine: Aw, I'm sure you'll get it eventually.
     - rid: 2633833386215735389
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:

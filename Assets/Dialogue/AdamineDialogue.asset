@@ -22,9 +22,49 @@ MonoBehaviour:
     - rid: 6313860343315562571
     - rid: 6313860343315562574
     - rid: 6313860343315562569
+    - rid: 3813937048124653644
+  - interactionName: How did you handle the text Response 1
+    dialogue:
+    - rid: 3813937048124653646
+    - rid: 3813937048124653647
+  - interactionName: How did you handle the text Response 2
+    dialogue:
+    - rid: 3813937048124653646
+    - rid: 3813937048124653648
   references:
     version: 2
     RefIds:
+    - rid: 3813937048124653644
+      type: {class: DialogueOptions, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: How did you handle the text?
+        choices:
+        - dialogueLine: I handled it pretty well.
+          charcterResponding: {fileID: 11400000}
+          interactionNum: 1
+          textNum: 0
+        - dialogueLine: I did not handle it well.
+          charcterResponding: {fileID: 11400000}
+          interactionNum: 2
+          textNum: 0
+    - rid: 3813937048124653646
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Looks like you still have more work to do.
+    - rid: 3813937048124653647
+      type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Swap to Mariena
+        swapTo: {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
+        interactionNum: 1
+        textNum: 0
+    - rid: 3813937048124653648
+      type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Swap to Mariena
+        swapTo: {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
+        interactionNum: 2
+        textNum: 0
     - rid: 6313860343315562568
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:

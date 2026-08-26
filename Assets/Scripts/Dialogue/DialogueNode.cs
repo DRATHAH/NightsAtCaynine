@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Unity.VisualScripting.Metadata;
 
-[System.Serializable]
+[Serializable]
 public class DialogueNode
 {
+    [TextArea]
     public string dialogueLine = "";
 
     public DialogueNode()
@@ -52,11 +53,11 @@ public class DialogueSequence : DialogueNode
 [Serializable]
 public class DialogueOptions : DialogueNode
 {
-    public string[] choices;
+    public AnswerChoice[] choices;
 
     public DialogueOptions() { }
 
-    public DialogueOptions(string question, string[] options)
+    public DialogueOptions(string question, AnswerChoice[] options)
     {
         dialogueLine = question;
         choices = options;
@@ -65,15 +66,40 @@ public class DialogueOptions : DialogueNode
     public override string Process()
     {
         Debug.Log(dialogueLine + " is the question");
-        foreach (string choice in choices)
+        foreach (AnswerChoice choice in choices)
         {
-            Debug.Log(choice);
+            Debug.Log(choice.dialogueLine);
         }
 
         return dialogueLine;
     }
 }
 
+[Serializable]
+public class AnswerChoice : DialogueNode
+{
+    public CharDialogueData charcterResponding;
+    public int interactionNum = 0;
+    public int textNum = 0;
+
+    public AnswerChoice() { }
+
+    public AnswerChoice(string answer, CharDialogueData character, int interaction, int text)
+    {
+        dialogueLine = answer;
+        charcterResponding = character;
+        interactionNum = interaction;
+        textNum = text;
+    }
+
+    public override string Process()
+    {
+        Debug.Log("Answered");
+        return null;
+    }
+}
+
+[Serializable]
 public class DialogueSwapSpeaker : DialogueNode
 {
     public DialogueSwapSpeaker() { }
