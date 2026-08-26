@@ -51,6 +51,7 @@ public class DialogueManager : MonoBehaviour
 
     public string GetText()
     {
+        subtitleManager.SetContinueState(true);
         return currentInteraction.dialogue[textNum].Process();
     }
 
@@ -60,6 +61,13 @@ public class DialogueManager : MonoBehaviour
         if (currentInteraction.dialogue.Length - 1 == textNum)
         {
             subtitleManager.FinishDialogue();
+            return null;
+        }
+
+        // Hide dialogue box if presenting options
+        if (currentInteraction.dialogue[textNum + 1].GetType() == typeof(DialogueOption))
+        {
+            subtitleManager.SetContinueState(false);
             return null;
         }
 

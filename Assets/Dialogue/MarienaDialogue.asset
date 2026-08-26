@@ -15,47 +15,51 @@ MonoBehaviour:
   characterName: Mariena
   dialogueColor: {r: 1, g: 0.7764706, b: 0.78431374, a: 1}
   interactions:
-  - interactionName: Start test
+  - interactionName: Interaction Test
     dialogue:
-    - rid: 2633833386215735376
-    - rid: 2633833386215735389
-    - rid: 2633833386215735390
-    - rid: 6313860343315562567
-    - rid: 6313860343315562572
-    - rid: 6313860343315562573
-  - interactionName: How did you handle the text Reponse 1
+    - rid: 2633833431612260439
+    - rid: 2633833431612260443
+    - rid: 2633833431612260444
+    - rid: 2633833431612260445
+    - rid: 2633833431612260467
+  - interactionName: Handle Text Reponse 1
     dialogue:
-    - rid: 2633833386215735376
-  - interactionName: How did you handle the text Reponse 2
+    - rid: 2633833431612260440
+  - interactionName: Handle Text Reponse 2
     dialogue:
-    - rid: 2633833386215735376
+    - rid: 2633833431612260441
   references:
     version: 2
     RefIds:
-    - rid: 2633833386215735376
+    - rid: 2633833431612260439
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Hey, how's it going kid?
+    - rid: 2633833431612260440
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: The programmer's pretty talented, aren't they? Can't wait to
+          see what you do in the future, kid.
+    - rid: 2633833431612260441
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
         dialogueLine: Aw, I'm sure you'll get it eventually.
-    - rid: 2633833386215735389
+    - rid: 2633833431612260443
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
-        dialogueLine: You are talking to me!
-    - rid: 2633833386215735390
-      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
-      data:
-        dialogueLine: This is so cool!
-    - rid: 6313860343315562567
+        dialogueLine: Name's Mariena. Nice to finally be able to talk to you.
+    - rid: 2633833431612260444
       type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
       data:
         dialogueLine: Swap to Adamine
         swapTo: {fileID: 11400000, guid: 61e5ef37279ae864d8882d62d3e74fe2, type: 2}
         interactionNum: 0
         textNum: 0
-    - rid: 6313860343315562572
+    - rid: 2633833431612260445
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
-        dialogueLine: But the programmer is trying his best!
-    - rid: 6313860343315562573
+        dialogueLine: Hey, the programmer's doing his best.
+    - rid: 2633833431612260467
       type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
       data:
         dialogueLine: Swap to Adamine

@@ -12,7 +12,7 @@ public class DialogueNode
 
     public DialogueNode()
     {
-
+        dialogueLine = new string("");
     }
 
     public DialogueNode(string text)
@@ -65,11 +65,7 @@ public class DialogueOptions : DialogueNode
 
     public override string Process()
     {
-        Debug.Log(dialogueLine + " is the question");
-        foreach (AnswerChoice choice in choices)
-        {
-            Debug.Log(choice.dialogueLine);
-        }
+        SubtitleManager.instance.ShowDialogueOptions(dialogueLine, choices);
 
         return dialogueLine;
     }
@@ -94,7 +90,6 @@ public class AnswerChoice : DialogueNode
 
     public override string Process()
     {
-        Debug.Log("Answered");
         return null;
     }
 }
@@ -111,7 +106,6 @@ public class DialogueSwapSpeaker : DialogueNode
 
     public override string Process()
     {
-        Debug.Log("Swapped");
         DialogueInteraction interaction = swapTo.interactions[interactionNum];
         DialogueManager.instance.SwapCharacter(swapTo, interaction, textNum);
         return null;

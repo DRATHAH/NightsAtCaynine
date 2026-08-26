@@ -22,6 +22,7 @@ public class DialogueOption : MonoBehaviour
         {
             DialogueInteraction interaction = characterToRespond.interactions[interactionNum];
             DialogueManager.instance.SwapCharacter(characterToRespond, interaction, textNum);
+            SubtitleManager.instance.AnswerQuestion();
         }
         else
         {

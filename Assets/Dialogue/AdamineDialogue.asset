@@ -17,24 +17,44 @@ MonoBehaviour:
   interactions:
   - interactionName: Swap test
     dialogue:
-    - rid: 6313860343315562568
-    - rid: 6313860343315562570
-    - rid: 6313860343315562571
-    - rid: 6313860343315562574
-    - rid: 6313860343315562569
-    - rid: 3813937048124653644
-  - interactionName: How did you handle the text Response 1
+    - rid: 2633833431612260446
+    - rid: 2633833431612260447
+    - rid: 2633833431612260449
+    - rid: 2633833431612260450
+    - rid: 2633833431612260452
+    - rid: 2633833431612260451
+  - interactionName: Handle Text Response 1
     dialogue:
-    - rid: 3813937048124653646
-    - rid: 3813937048124653647
-  - interactionName: How did you handle the text Response 2
+    - rid: 2633833431612260454
+    - rid: 2633833431612260456
+  - interactionName: Handle Text Response 2
     dialogue:
-    - rid: 3813937048124653646
-    - rid: 3813937048124653648
+    - rid: 2633833431612260455
+    - rid: 2633833431612260457
   references:
     version: 2
     RefIds:
-    - rid: 3813937048124653644
+    - rid: 2633833431612260446
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Yeah, it's pretty neat, huh?
+    - rid: 2633833431612260447
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: This is Adamine speaking, by the way. It's kind of hard to
+          tell with the white boxes being placeholders for our art.
+    - rid: 2633833431612260449
+      type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Swap to Mariena
+        swapTo: {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
+        interactionNum: 0
+        textNum: 3
+    - rid: 2633833431612260450
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Alright, true. I'll give him some credit for that.
+    - rid: 2633833431612260451
       type: {class: DialogueOptions, ns: , asm: Assembly-CSharp}
       data:
         dialogueLine: How did you handle the text?
@@ -47,47 +67,31 @@ MonoBehaviour:
           charcterResponding: {fileID: 11400000}
           interactionNum: 2
           textNum: 0
-    - rid: 3813937048124653646
+    - rid: 2633833431612260452
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
-        dialogueLine: Looks like you still have more work to do.
-    - rid: 3813937048124653647
+        dialogueLine: Speaking of which, I wonder how long I can speak for. Do you
+          think all this text will run off the screen? Let's see how the programmer
+          can handle all this text.
+    - rid: 2633833431612260454
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Huh, not bad.
+    - rid: 2633833431612260455
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Looks like you still got more work to do then, huh?
+    - rid: 2633833431612260456
       type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
       data:
         dialogueLine: Swap to Mariena
         swapTo: {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
         interactionNum: 1
         textNum: 0
-    - rid: 3813937048124653648
+    - rid: 2633833431612260457
       type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
       data:
         dialogueLine: Swap to Mariena
         swapTo: {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
         interactionNum: 2
         textNum: 0
-    - rid: 6313860343315562568
-      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
-      data:
-        dialogueLine: Yeah, I guess this is pretty cool, huh?
-    - rid: 6313860343315562569
-      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
-      data:
-        dialogueLine: Speaking of which, I wonder how long I can speak for. Do you
-          think all this text will run off the dialogue box? Let's see how the programmer
-          handles this.
-    - rid: 6313860343315562570
-      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
-      data:
-        dialogueLine: This is Adamine speaking, by the way. It's kind of hard to
-          tell with the white boxes being a placeholder for our art.
-    - rid: 6313860343315562571
-      type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
-      data:
-        dialogueLine: Swap to Mariena
-        swapTo: {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
-        interactionNum: 0
-        textNum: 4
-    - rid: 6313860343315562574
-      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
-      data:
-        dialogueLine: Alright, true. I'll give him some credit for that.

@@ -26,15 +26,17 @@ public class SubtitleManager : MonoBehaviour
     [SerializeField] Subtitle dialogueBox;
     [SerializeField] TMP_Text messageText;
     [SerializeField] CharIconData[] characterIcons;
+    [SerializeField] QuestionUI dialogueOptions;
+
+    [Tooltip("Speed at which each character is typed in at")]
+    public float time = 0.02f;
 
     [Header("Other")]
     public InputActionReference mouseClick;
     public InputActionReference rightMouseClick;
 
     DialogueManager dialogueManager;
-
-    [Tooltip("Speed at which each character is typed in at")]
-    public float time = 0.02f;
+    bool canClick = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,7 +49,7 @@ public class SubtitleManager : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (mouseClick.action.triggered && dialogueAnimation.gameObject.GetComponent<CanvasGroup>().alpha == 1 && dialogueAnimation.gameObject.activeSelf)
+        if (mouseClick.action.triggered && dialogueAnimation.gameObject.GetComponent<CanvasGroup>().alpha == 1 && dialogueAnimation.gameObject.activeSelf && canClick)
         {
             if (!dialogueBox.finished)
             {
@@ -63,6 +65,11 @@ public class SubtitleManager : MonoBehaviour
         {
             SetText(dialogueManager.Reverse());
         }
+    }
+
+    public void SetContinueState(bool state)
+    {
+        canClick = state;
     }
 
     public void CallStartDialogue(CharDialogueData[] characters)
@@ -130,8 +137,22 @@ public class SubtitleManager : MonoBehaviour
         dialogueAnimation.SetTrigger("Deactivate");
     }
 
-    public void ShowDialogueOptions()
+    public void ShowDialogueOptions(string question, AnswerChoice[] answers)
     {
+        dialogueAnimation.SetBool("QuestionAnswer",true);
+        dialogueOptions.gameObject.SetActive(true);
+        dialogueOptions.questionText.text = question;
+        foreach (AnswerChoice ans in answers)
+        {
+            dialogueOptions.AddAnswer(ans);
+        }
+    }
 
+    public void AnswerQuestion()
+    {
+        dialogueOptions.ClearAnswers();
+        dialogueAnimation.SetBool("QuestionAnswer", true);
+        dialogueAnimation.SetBool("Activate", true);
+        dialogueAnimation.SetBool("QuestionAnswer", false);
     }
 }

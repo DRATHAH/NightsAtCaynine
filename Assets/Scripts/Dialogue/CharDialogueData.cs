@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "New Character Dialogue Data", menuName = "Dialogue/Character Dialogue Data")]
 public class CharDialogueData : ScriptableObject
