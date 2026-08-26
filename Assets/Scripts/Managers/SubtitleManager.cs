@@ -27,6 +27,7 @@ public class SubtitleManager : MonoBehaviour
     [SerializeField] TMP_Text messageText;
     [SerializeField] CharIconData[] characterIcons;
     [SerializeField] QuestionUI dialogueOptions;
+    [SerializeField] GameObject textParent;
 
     [Tooltip("Speed at which each character is typed in at")]
     public float time = 0.02f;
@@ -49,7 +50,7 @@ public class SubtitleManager : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (mouseClick.action.triggered && dialogueAnimation.gameObject.GetComponent<CanvasGroup>().alpha == 1 && dialogueAnimation.gameObject.activeSelf && canClick)
+        if (mouseClick.action.triggered && dialogueAnimation.gameObject.GetComponent<CanvasGroup>().alpha == 1 && dialogueAnimation.gameObject.activeSelf && textParent.activeSelf)
         {
             if (!dialogueBox.finished)
             {
@@ -65,11 +66,6 @@ public class SubtitleManager : MonoBehaviour
         {
             SetText(dialogueManager.Reverse());
         }
-    }
-
-    public void SetContinueState(bool state)
-    {
-        canClick = state;
     }
 
     public void CallStartDialogue(CharDialogueData[] characters)
@@ -139,7 +135,8 @@ public class SubtitleManager : MonoBehaviour
 
     public void ShowDialogueOptions(string question, AnswerChoice[] answers)
     {
-        dialogueAnimation.SetBool("QuestionAnswer",true);
+        //dialogueAnimation.SetBool("QuestionAnswer",true);
+        textParent.SetActive(false);
         dialogueOptions.gameObject.SetActive(true);
         dialogueOptions.questionText.text = question;
         foreach (AnswerChoice ans in answers)
@@ -151,8 +148,9 @@ public class SubtitleManager : MonoBehaviour
     public void AnswerQuestion()
     {
         dialogueOptions.ClearAnswers();
-        dialogueAnimation.SetBool("QuestionAnswer", true);
+        textParent.SetActive(true);
+        /*dialogueAnimation.SetBool("QuestionAnswer", true);
         dialogueAnimation.SetBool("Activate", true);
-        dialogueAnimation.SetBool("QuestionAnswer", false);
+        dialogueAnimation.SetBool("QuestionAnswer", false);*/
     }
 }

@@ -27,14 +27,14 @@ public class DialogueNode
 }
 
 [Serializable]
-public class DialogueSequence : DialogueNode
+public class DialogueInteractorModify : DialogueNode
 {
     [SerializeReference]
     public List<DialogueNode> nodes = new List<DialogueNode>();
 
-    public DialogueSequence() { }
+    public DialogueInteractorModify() { }
 
-    public DialogueSequence(string text)
+    public DialogueInteractorModify(string text)
     {
         dialogueLine = text;
     }

@@ -20,9 +20,9 @@ public class DialogueOption : MonoBehaviour
     {
         if (characterToRespond)
         {
+            SubtitleManager.instance.AnswerQuestion();
             DialogueInteraction interaction = characterToRespond.interactions[interactionNum];
             DialogueManager.instance.SwapCharacter(characterToRespond, interaction, textNum);
-            SubtitleManager.instance.AnswerQuestion();
         }
         else
         {

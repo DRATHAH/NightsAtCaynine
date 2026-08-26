@@ -1402,6 +1402,7 @@ MonoBehaviour:
   - {fileID: 425424384}
   - {fileID: 2128494193}
   dialogueOptions: {fileID: 427871765}
+  textParent: {fileID: 1515876563}
   time: 0.02
   mouseClick: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   rightMouseClick: {fileID: -5731514737811258751, guid: 052faaac586de48259a63d0c4782560b, type: 3}

@@ -27,6 +27,7 @@ public class QuestionUI : MonoBehaviour
         GameObject newAnswer = Instantiate(answerPrefab, questionsParent);
         DialogueOption dialogueOption = newAnswer.GetComponent<DialogueOption>();
 
+        answers.Add(newAnswer);
         dialogueOption.InitializeChoice(answerToAdd.dialogueLine, answerToAdd.charcterResponding, answerToAdd.interactionNum, answerToAdd.textNum);
     }
 
