@@ -38,8 +38,8 @@ MonoBehaviour:
     - rid: 2633833431612260440
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
-        dialogueLine: The programmer's pretty talented, aren't they? Can't wait to
-          see what you do in the future, kid.
+        dialogueLine: The programmer's pretty talented, isn't he? Can't wait to see
+          what you do in the future, kid.
     - rid: 2633833431612260441
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
