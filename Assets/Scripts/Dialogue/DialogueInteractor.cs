@@ -15,12 +15,14 @@ public class DialogueInteractor : MonoBehaviour
     {
         DialogueInteraction interaction = speakers[1].interactions[interactionNum];
         DialogueManager.instance.StartInteraction(speakers, interaction, textNum);
-        repeated = Mathf.Clamp(repeated++, 0, repeatedDialogues.Count - 1);
+
+        repeated++;
+        repeated = Mathf.Clamp(repeated, 0, repeatedDialogues.Count);
 
         if (repeatedDialogues.Count > 0)
         {
-            textNum = repeatedDialogues[repeated].textNum;
-            interactionNum = repeatedDialogues[repeated].interactionNum;
+            textNum = repeatedDialogues[repeated - 1].textNum;
+            interactionNum = repeatedDialogues[repeated - 1].interactionNum;
         }
     }
 }

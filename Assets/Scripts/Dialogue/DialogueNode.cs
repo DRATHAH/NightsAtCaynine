@@ -2,13 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Unity.VisualScripting.Metadata;
 
 [Serializable]
 public class DialogueNode
 {
     [TextArea]
     public string dialogueLine = "";
+
+    public bool requiresPreqrequisite = false;
+    public string[] prerequisiteNames;
 
     public DialogueNode()
     {
@@ -23,30 +25,6 @@ public class DialogueNode
     public virtual string Process()
     {
         return dialogueLine;
-    }
-}
-
-[Serializable]
-public class DialogueInteractorModify : DialogueNode
-{
-    [SerializeReference]
-    public List<DialogueNode> nodes = new List<DialogueNode>();
-
-    public DialogueInteractorModify() { }
-
-    public DialogueInteractorModify(string text)
-    {
-        dialogueLine = text;
-    }
-
-    public override string Process()
-    {
-        foreach(DialogueNode node in nodes)
-        {
-            return node.Process();
-        }
-
-        return null;
     }
 }
 
