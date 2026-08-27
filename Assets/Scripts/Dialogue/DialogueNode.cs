@@ -9,9 +9,6 @@ public class DialogueNode
     [TextArea]
     public string dialogueLine = "";
 
-    public bool requiresPreqrequisite = false;
-    public string[] prerequisiteNames;
-
     public DialogueNode()
     {
         dialogueLine = new string("");
@@ -87,5 +84,23 @@ public class DialogueSwapSpeaker : DialogueNode
         DialogueInteraction interaction = swapTo.interactions[interactionNum];
         DialogueManager.instance.SwapCharacter(swapTo, interaction, textNum);
         return null;
+    }
+}
+
+[Serializable]
+public class PrerequisiteCheck : DialogueNode
+{
+    public string[] prerequisites;
+
+    public PrerequisiteCheck() { }
+
+    public override string Process()
+    {
+        string list = "";
+        foreach(string item in prerequisites)
+        {
+            list += item + ", ";
+        }
+        return dialogueLine;
     }
 }
