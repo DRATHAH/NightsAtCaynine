@@ -28,6 +28,12 @@ MonoBehaviour:
   - interactionName: Handle Text Reponse 2
     dialogue:
     - rid: 2633833431612260441
+  - interactionName: Interacted Again
+    dialogue:
+    - rid: 3813937048124653673
+    - rid: 3813937048124653674
+    - rid: 3813937048124653675
+    - rid: 3813937048124653678
   references:
     version: 2
     RefIds:
@@ -66,3 +72,22 @@ MonoBehaviour:
         swapTo: {fileID: 11400000, guid: 61e5ef37279ae864d8882d62d3e74fe2, type: 2}
         interactionNum: 0
         textNum: 3
+    - rid: 3813937048124653673
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Wanted to talk some more?
+    - rid: 3813937048124653674
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Sorry, unfortunately this is the end of the dialogue demo.
+    - rid: 3813937048124653675
+      type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Swap to Adamine
+        swapTo: {fileID: 11400000, guid: 61e5ef37279ae864d8882d62d3e74fe2, type: 2}
+        interactionNum: 3
+        textNum: 0
+    - rid: 3813937048124653678
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Yeah, kid did good!

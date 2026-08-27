@@ -66,6 +66,7 @@ public class DialogueManager : MonoBehaviour
         // Hide dialogue box if presenting options
         if (currentInteraction.dialogue[textNum + 1].GetType() == typeof(DialogueOption))
         {
+            subtitleManager.ClearText();
             return null;
         }
 
@@ -94,10 +95,5 @@ public class DialogueManager : MonoBehaviour
         currentInteraction = newInteraction;
         textNum = newTextNum;
         subtitleManager.SetText(GetText());
-    }
-
-    public void Choice()
-    {
-        Debug.Log("Show new dialogue options");
     }
 }

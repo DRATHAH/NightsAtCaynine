@@ -40,7 +40,7 @@ public class DialogueNodeDrawer : PropertyDrawer
 
         // Creates different menu buttons for each type of dialogue
         menu.AddItem(new GUIContent("Dialogue Line"), false, () => CreateNode<DialogueNode>(property));
-        menu.AddItem(new GUIContent("Dialogue Sequence"), false, () => CreateNode<DialogueSequence>(property));
+        menu.AddItem(new GUIContent("Change Opening Dialogue"), false, () => CreateNode<DialogueInteractorModify>(property));
         menu.AddItem(new GUIContent("Dialogue Question"), false, () => CreateNode<DialogueOptions>(property));
         menu.AddItem(new GUIContent("Swap Speaker"), false, () => CreateNode<DialogueSwapSpeaker>(property));
 

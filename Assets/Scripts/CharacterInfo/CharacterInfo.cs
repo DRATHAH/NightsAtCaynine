@@ -9,9 +9,7 @@ public class CharacterInfo : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        DialogueSequence testLeaf = new DialogueSequence("I just said hello");
 
-        testLeaf.Process();
     }
 
     // Update is called once per frame

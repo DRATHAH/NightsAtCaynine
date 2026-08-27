@@ -31,6 +31,10 @@ MonoBehaviour:
     dialogue:
     - rid: 2633833431612260455
     - rid: 2633833431612260457
+  - interactionName: Repeat Dialogue
+    dialogue:
+    - rid: 3813937048124653676
+    - rid: 3813937048124653677
   references:
     version: 2
     RefIds:
@@ -95,3 +99,15 @@ MonoBehaviour:
         swapTo: {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
         interactionNum: 2
         textNum: 0
+    - rid: 3813937048124653676
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Yeah, kind of a shame. But I think the programmer did a good
+          job showcasing this dialogue system.
+    - rid: 3813937048124653677
+      type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Swap to Mariena
+        swapTo: {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
+        interactionNum: 3
+        textNum: 3

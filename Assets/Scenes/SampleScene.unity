@@ -578,7 +578,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 61e5ef37279ae864d8882d62d3e74fe2, type: 2}
   - {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
   textNum: 0
-  interactionName: Start Test
+  interactionNum: 0
+  repeatedDialogues:
+  - dialogueLine: Repeat
+    swapTo: {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
+    interactionNum: 3
+    textNum: 0
 --- !u!114 &343986961
 MonoBehaviour:
   m_ObjectHideFlags: 0

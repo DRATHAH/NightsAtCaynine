@@ -37,7 +37,6 @@ public class SubtitleManager : MonoBehaviour
     public InputActionReference rightMouseClick;
 
     DialogueManager dialogueManager;
-    bool canClick = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -78,7 +77,6 @@ public class SubtitleManager : MonoBehaviour
         for (int i = 0; i < characters.Length; i++)
         {
             characterIcons[i].AssignCharacter(characters[i]);
-            Debug.Log(characterIcons[i].name);
         }
 
         dialogueAnimation.gameObject.SetActive(true);
@@ -129,13 +127,17 @@ public class SubtitleManager : MonoBehaviour
 
     public void FinishDialogue()
     {
-        dialogueBox.ClearDialogue(messageText);
+        ClearText();
         dialogueAnimation.SetTrigger("Deactivate");
+    }
+
+    public void ClearText()
+    {
+        dialogueBox.ClearDialogue(messageText);
     }
 
     public void ShowDialogueOptions(string question, AnswerChoice[] answers)
     {
-        //dialogueAnimation.SetBool("QuestionAnswer",true);
         textParent.SetActive(false);
         dialogueOptions.gameObject.SetActive(true);
         dialogueOptions.questionText.text = question;
@@ -149,8 +151,5 @@ public class SubtitleManager : MonoBehaviour
     {
         dialogueOptions.ClearAnswers();
         textParent.SetActive(true);
-        /*dialogueAnimation.SetBool("QuestionAnswer", true);
-        dialogueAnimation.SetBool("Activate", true);
-        dialogueAnimation.SetBool("QuestionAnswer", false);*/
     }
 }
