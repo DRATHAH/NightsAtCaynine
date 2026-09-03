@@ -27,17 +27,6 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         subtitleManager = SubtitleManager.instance;
-        /*if (currentCharacter)
-        {
-            currentInteraction = currentCharacter.dialogueData.interactions[0];
-            subtitleManager.SetText(currentInteraction.dialogue[textNum].dialogueLine);
-        }*/
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void StartInteraction(CharDialogueData[] interactedChar, DialogueInteraction interaction, int newNum)
@@ -59,7 +48,7 @@ public class DialogueManager : MonoBehaviour
         // End dialogue interaction if finished with all queued dialogue
         if (currentInteraction.dialogue.Length - 1 == textNum)
         {
-            subtitleManager.FinishDialogue();
+            FinishDialogue();
             return null;
         }
 
@@ -95,5 +84,10 @@ public class DialogueManager : MonoBehaviour
         currentInteraction = newInteraction;
         textNum = newTextNum;
         subtitleManager.SetText(GetText());
+    }
+
+    public void FinishDialogue()
+    {
+        subtitleManager.FinishDialogue();
     }
 }
