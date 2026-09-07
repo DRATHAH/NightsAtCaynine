@@ -52,15 +52,17 @@ public class AnswerChoice : DialogueNode
     public CharDialogueData charcterResponding;
     public int interactionNum = 0;
     public int textNum = 0;
+    public Prerequisite[] prerequisite;
 
     public AnswerChoice() { }
 
-    public AnswerChoice(string answer, CharDialogueData character, int interaction, int text)
+    public AnswerChoice(string answer, CharDialogueData character, int interaction, int text, Prerequisite[] prereq)
     {
         dialogueLine = answer;
         charcterResponding = character;
         interactionNum = interaction;
         textNum = text;
+        prerequisite = prereq;
     }
 
     public override string Process()
@@ -72,12 +74,12 @@ public class AnswerChoice : DialogueNode
 [Serializable]
 public class DialogueSwapSpeaker : DialogueNode
 {
-    public DialogueSwapSpeaker() { }
-
     [SerializeField]
     public CharDialogueData swapTo;
     public int interactionNum;
     public int textNum = 0;
+
+    public DialogueSwapSpeaker() { }
 
     public override string Process()
     {
@@ -90,17 +92,33 @@ public class DialogueSwapSpeaker : DialogueNode
 [Serializable]
 public class PrerequisiteCheck : DialogueNode
 {
-    public string[] prerequisites;
+    public Prerequisite[] prerequisites;
+    public DialogueInteraction prerequisiteInteraction;
 
     public PrerequisiteCheck() { }
 
     public override string Process()
     {
-        string list = "";
-        foreach(string item in prerequisites)
+        foreach(Prerequisite item in prerequisites)
         {
-            list += item + ", ";
+            if (!PlayerStats.instance.HasPrerequisite(item.prerequisiteName, item.GetProgress()))
+            {
+                return DialogueManager.instance.Continue();
+            }
         }
-        return dialogueLine;
+        DialogueManager.instance.SwapCharacter(DialogueManager.instance.currentCharacter, prerequisiteInteraction, 0);
+        return null;
+    }
+}
+
+[Serializable]
+public class EndDialogue : DialogueNode
+{
+    public EndDialogue() { }
+
+    public override string Process()
+    {
+        DialogueManager.instance.FinishDialogue();
+        return null;
     }
 }

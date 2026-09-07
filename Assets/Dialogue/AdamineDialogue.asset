@@ -67,10 +67,12 @@ MonoBehaviour:
           charcterResponding: {fileID: 11400000}
           interactionNum: 1
           textNum: 0
+          prerequisite: []
         - dialogueLine: I did not handle it well.
           charcterResponding: {fileID: 11400000}
           interactionNum: 2
           textNum: 0
+          prerequisite: []
     - rid: 2633833431612260452
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:

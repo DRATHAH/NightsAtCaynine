@@ -31,12 +31,87 @@ MonoBehaviour:
   - interactionName: Interacted Again
     dialogue:
     - rid: 3813937048124653673
-    - rid: 3813937048124653674
-    - rid: 3813937048124653675
-    - rid: 3813937048124653678
+    - rid: 808654698108420161
+    - rid: 808654698108420174
+  - interactionName: Prerequisite Test Response
+    dialogue:
+    - rid: 808654698108420189
+    - rid: 808654698108420188
+    - rid: 808654698108420187
+    - rid: 808654698108420190
   references:
     version: 2
     RefIds:
+    - rid: 808654698108420161
+      type: {class: PrerequisiteCheck, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Mariena Fave Prerequisite Check
+        prerequisites:
+        - prerequisiteName: Mariena Fave
+          type: 0
+          progress: 0
+        prerequisiteInteraction:
+          interactionName: Mariena Flattered
+          dialogue:
+          - rid: 808654698108420173
+          - rid: 808654698108420181
+          - rid: 808654698108420182
+          - rid: 808654698108420183
+          - rid: 808654698108420177
+    - rid: 808654698108420173
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Well aren't you needy. Don't worry, I find it cute~.
+    - rid: 808654698108420174
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Sorry hun, I'm quite busy. Mind if we chat later?
+    - rid: 808654698108420177
+      type: {class: EndDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: End Dialogue
+    - rid: 808654698108420181
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Hmm? Oh, you need me to test out another thing for you?
+    - rid: 808654698108420182
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Alright, well since you've been such a dear, here you go.
+    - rid: 808654698108420183
+      type: {class: DialogueOptions, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Does the prerequisite work?
+        choices:
+        - dialogueLine: Yes.
+          charcterResponding: {fileID: 11400000}
+          interactionNum: 4
+          textNum: 2
+          prerequisite: []
+        - dialogueLine: It's broken.
+          charcterResponding: {fileID: 11400000}
+          interactionNum: 4
+          textNum: 0
+          prerequisite:
+          - prerequisiteName: Prerequisite Test
+            type: 0
+            progress: 1
+    - rid: 808654698108420187
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: I'm happy to hear that.
+    - rid: 808654698108420188
+      type: {class: EndDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: End Dialogue
+    - rid: 808654698108420189
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: Aww, I'm sure you'll get it eventually.
+    - rid: 808654698108420190
+      type: {class: EndDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        dialogueLine: End dialogue.
     - rid: 2633833431612260439
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
@@ -76,18 +151,3 @@ MonoBehaviour:
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
       data:
         dialogueLine: Wanted to talk some more?
-    - rid: 3813937048124653674
-      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
-      data:
-        dialogueLine: Sorry, unfortunately this is the end of the dialogue demo.
-    - rid: 3813937048124653675
-      type: {class: DialogueSwapSpeaker, ns: , asm: Assembly-CSharp}
-      data:
-        dialogueLine: Swap to Adamine
-        swapTo: {fileID: 11400000, guid: 61e5ef37279ae864d8882d62d3e74fe2, type: 2}
-        interactionNum: 3
-        textNum: 0
-    - rid: 3813937048124653678
-      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
-      data:
-        dialogueLine: Yeah, kid did good!

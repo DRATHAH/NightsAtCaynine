@@ -28,7 +28,7 @@ public class QuestionUI : MonoBehaviour
         DialogueOption dialogueOption = newAnswer.GetComponent<DialogueOption>();
 
         answers.Add(newAnswer);
-        dialogueOption.InitializeChoice(answerToAdd.dialogueLine, answerToAdd.charcterResponding, answerToAdd.interactionNum, answerToAdd.textNum);
+        dialogueOption.InitializeChoice(answerToAdd.dialogueLine, answerToAdd.charcterResponding, answerToAdd.interactionNum, answerToAdd.textNum, answerToAdd.prerequisite);
     }
 
     public void ClearAnswers()
