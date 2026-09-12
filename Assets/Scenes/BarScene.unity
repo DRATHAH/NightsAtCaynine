@@ -615,7 +615,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
   textNum: 0
   interactionNum: 0
-  repeatedDialogues: []
+  repeatedDialogues:
+  - dialogueLine: 
+    swapTo: {fileID: 11400000, guid: 3ca2c48a948cc6744a316cf8f6f1389b, type: 2}
+    interactionNum: 3
+    textNum: 0
 --- !u!114 &343986961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2409,7 +2413,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 124.999985}
-  m_SizeDelta: {x: 0, y: 250}
+  m_SizeDelta: {x: 50, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1141223426
 MonoBehaviour:
@@ -2649,6 +2653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1281427059}
   - component: {fileID: 1281427058}
+  - component: {fileID: 1281427060}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2684,6 +2689,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1281427060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281427057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95a8b05db1873c4eb6cdf2f9a841c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  cheatKey: {fileID: -8531097871778634706, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  cheatPrereq:
+    prerequisiteName: Mariena Fave
+    type: 0
+    progress: 0
 --- !u!1 &1343626594
 GameObject:
   m_ObjectHideFlags: 0
